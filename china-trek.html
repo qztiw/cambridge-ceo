@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>创业中国行 China Trek 2026 | Cambridge CEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+SC:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep-navy: #0a1628;
+  --warm-gold: #c9a84c;
+  --off-white: #f5f2ed;
+  --cream: #eae5dc;
+  --slate: #3a3f4b;
+  --muted: #7a7e88;
+  --cambridge-blue: #a3c1ad;
+  --light-blue: #d4e4eb;
+  --accent-red: #b44233;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', 'Noto Sans SC', sans-serif;
+  background: var(--off-white);
+  color: var(--slate);
+  overflow-x: hidden;
+}
+
+/* ═══ LANGUAGE TOGGLE ═══ */
+.en { display: none; }
+.zh { display: block; }
+.en-inline { display: none; }
+.zh-inline { display: inline; }
+
+body.lang-en .en { display: block; }
+body.lang-en .zh { display: none; }
+body.lang-en .en-inline { display: inline; }
+body.lang-en .zh-inline { display: none; }
+
+/* ═══ NAVIGATION ═══ */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+  background: rgba(10, 22, 40, 0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+}
+
+.nav-logo img {
+  height: 36px;
+  width: auto;
+}
+
+.nav-logo-text {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
+.nav-logo-text span { color: var(--warm-gold); }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: #fff; }
+
+.lang-toggle {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.9);
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  transition: all 0.3s;
+  font-family: inherit;
+}
+
+.lang-toggle:hover {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+/* ═══ HERO ═══ */
+.hero {
+  min-height: 100vh;
+  background: var(--deep-navy);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 8rem 2rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(163, 193, 173, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(201, 168, 76, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(201, 168, 76, 0.12);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  padding: 0.5rem 1.4rem;
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--warm-gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  animation: fadeInDown 0.8s ease;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--warm-gold);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.8s ease 0.15s both;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--warm-gold);
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(255,255,255,0.5);
+  max-width: 700px;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+.hero-cities {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.8s ease 0.45s both;
+}
+
+.hero-city {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.hero-city-name {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.hero-city-en {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.hero-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(201, 168, 76, 0.5);
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--warm-gold);
+  color: var(--deep-navy);
+  padding: 1rem 2.4rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  transition: all 0.3s;
+  animation: fadeInUp 0.8s ease 0.6s both;
+}
+
+.hero-cta:hover {
+  background: #d4b35a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201, 168, 76, 0.25);
+}
+
+.hero-cta svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s;
+}
+
+.hero-cta:hover svg { transform: translateX(3px); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  animation: fadeInUp 1s ease 0.8s both;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(201, 168, 76, 0.5), transparent);
+  animation: scrollPulse 2s infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.5; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.2); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══ SECTIONS SHARED ═══ */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--warm-gold);
+  margin-bottom: 1.2rem;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  color: var(--deep-navy);
+  line-height: 1.25;
+  margin-bottom: 1.5rem;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--muted);
+  max-width: 680px;
+}
+
+/* ═══ ABOUT ═══ */
+.about {
+  padding: 7rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-intro {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  line-height: 1.9;
+  color: var(--slate);
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.about-intro strong {
+  color: var(--deep-navy);
+  font-weight: 600;
+}
+
+.about-body {
+  font-size: 1.05rem;
+  line-height: 2;
+  color: var(--muted);
+  max-width: 800px;
+}
+
+/* ═══ DESTINATIONS ═══ */
+.destinations {
+  padding: 6rem 3rem 7rem;
+  background: var(--deep-navy);
+  color: #fff;
+}
+
+.destinations-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.dest-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 3.5rem;
+}
+
+.dest-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 2.5rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dest-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--warm-gold), var(--cambridge-blue));
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.dest-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(201, 168, 76, 0.2);
+  transform: translateY(-4px);
+}
+
+.dest-card:hover::before { opacity: 1; }
+
+.dest-region-tag {
+  display: inline-block;
+  background: rgba(201, 168, 76, 0.15);
+  color: var(--warm-gold);
+  padding: 0.3rem 0.9rem;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.dest-card h3 {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.dest-card-sub {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.03em;
+}
+
+.dest-companies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.dest-tag {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.7);
+  transition: all 0.3s;
+}
+
+.dest-tag:hover {
+  background: rgba(201, 168, 76, 0.1);
+  border-color: rgba(201, 168, 76, 0.3);
+  color: var(--warm-gold);
+}
+
+/* ═══ WHO CAN APPLY ═══ */
+.eligibility {
+  padding: 7rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.elig-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.elig-card {
+  background: #fff;
+  border: 1px solid rgba(10, 22, 40, 0.06);
+  border-radius: 12px;
+  padding: 2.5rem;
+  transition: all 0.4s;
+  position: relative;
+}
+
+.elig-card:hover {
+  box-shadow: 0 12px 40px rgba(10, 22, 40, 0.08);
+  transform: translateY(-3px);
+}
+
+.elig-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--deep-navy), #1a2d4a);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--warm-gold);
+  font-size: 1.3rem;
+}
+
+.elig-card h3 {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--deep-navy);
+  margin-bottom: 1rem;
+}
+
+.elig-card p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.elig-schools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.elig-school-tag {
+  background: var(--cream);
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--slate);
+}
+
+/* ═══ CTA / APPLY ═══ */
+.apply-section {
+  padding: 6rem 3rem 7rem;
+  background: linear-gradient(170deg, var(--deep-navy) 0%, #0f2035 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.apply-section::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(ellipse at center, rgba(201, 168, 76, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.apply-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.apply-section .section-title {
+  color: #fff;
+}
+
+.apply-desc {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 2.5rem;
+}
+
+.apply-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--warm-gold);
+  color: var(--deep-navy);
+  padding: 1.1rem 3rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  transition: all 0.3s;
+}
+
+.apply-btn:hover {
+  background: #d4b35a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201, 168, 76, 0.25);
+}
+
+.apply-note {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.6;
+}
+
+/* ═══ FOOTER ═══ */
+footer {
+  padding: 2.5rem 3rem;
+  background: var(--deep-navy);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  text-align: center;
+}
+
+footer a {
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: color 0.3s;
+}
+
+footer a:hover { color: var(--warm-gold); }
+
+footer p {
+  color: rgba(255,255,255,0.2);
+  font-size: 0.75rem;
+  margin-top: 0.6rem;
+}
+
+/* ═══ REVEAL ANIMATION ═══ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero { padding: 7rem 1.5rem 5rem; }
+  .hero-cities { gap: 1rem; }
+  .hero-city-name { font-size: 1.2rem; }
+  .about, .eligibility { padding: 4rem 1.5rem; }
+  .destinations { padding: 4rem 1.5rem; }
+  .dest-grid, .elig-grid { grid-template-columns: 1fr; }
+  .apply-section { padding: 4rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="Cambridge_CEO_LOGO.webp" alt="Cambridge CEO">
+    <span class="nav-logo-text">Cambridge <span>CEO</span></span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html"><span class="zh-inline">首页</span><span class="en-inline">Home</span></a></li>
+      <li><a href="#about"><span class="zh-inline">关于</span><span class="en-inline">About</span></a></li>
+      <li><a href="#destinations"><span class="zh-inline">行程</span><span class="en-inline">Itinerary</span></a></li>
+      <li><a href="#apply"><span class="zh-inline">报名</span><span class="en-inline">Apply</span></a></li>
+    </ul>
+    <button class="lang-toggle" onclick="toggleLang()">EN / 中</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="zh">
+    <div class="hero-badge">2026 旗舰活动</div>
+    <h1>创业<em>中国行</em></h1>
+    <p class="hero-subtitle">走进中国最活跃的科技创新城市<br>理解机器人、人工智能与创业生态的深度现场</p>
+  </div>
+  <div class="en">
+    <div class="hero-badge">2026 Flagship Event</div>
+    <h1><em>China</em> Trek</h1>
+    <p class="hero-subtitle">Step inside China's most dynamic innovation cities<br>and experience the frontlines of robotics, AI, and entrepreneurship</p>
+  </div>
+
+  <div class="hero-cities">
+    <div class="hero-city">
+      <span class="hero-city-name">深圳</span>
+      <span class="hero-city-en">Shenzhen</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-city">
+      <span class="hero-city-name">杭州</span>
+      <span class="hero-city-en">Hangzhou</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-city">
+      <span class="hero-city-name">上海</span>
+      <span class="hero-city-en">Shanghai</span>
+    </div>
+  </div>
+
+  <a href="#apply" class="hero-cta">
+    <span class="zh-inline">立即报名</span><span class="en-inline">Apply Now</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </a>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="zh">
+    <div class="section-label reveal">关于中国行</div>
+    <p class="about-intro reveal"><strong>Cambridge CEO</strong>（Cambridge Chinese Entrepreneur Organisation 剑桥大学全球华人创业者协会）是剑桥大学唯一注册的官方华人创业者协会，致力于帮助剑桥大学及英国知名院校的学生和校友链接中国的科技创新创业所需的创投基金、产业资源、专家导师与供应链。</p>
+    <p class="about-body reveal"><strong>China Trek 创业中国行</strong>是协会每年举办的旗舰活动。我们将带领来自剑桥、牛津及伦敦等高校的学生及校友创业家，走进中国最活跃的科技创新城市——理解一条正在成形的产业链：机器人如何被制造出来，人工智能如何进入物理世界，AI通用模型如何走进商业及人类生活，资本如何判断未来，创业者如何在时代变化中找到自己的位置。</p>
+  </div>
+  <div class="en">
+    <div class="section-label reveal">About China Trek</div>
+    <p class="about-intro reveal"><strong>Cambridge CEO</strong> (Cambridge Chinese Entrepreneur Organisation) is the only officially registered Chinese entrepreneurship society at the University of Cambridge, dedicated to connecting students and alumni from Cambridge and leading UK institutions with China's venture capital, industrial resources, expert mentors, and supply chains.</p>
+    <p class="about-body reveal"><strong>China Trek</strong> is the society's annual flagship programme. We lead student and alumni entrepreneurs from Cambridge, Oxford, and London universities into China's most dynamic innovation cities — to understand an emerging industrial chain: how robots are built, how AI enters the physical world, how foundation models reshape business and daily life, how capital evaluates the future, and how entrepreneurs find their place in a changing era.</p>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="destinations" id="destinations">
+  <div class="destinations-inner">
+    <div class="zh">
+      <div class="section-label reveal">行程目的地</div>
+      <h2 class="section-title reveal" style="color:#fff">两大科创中心，深度产业交流</h2>
+      <p class="section-desc reveal" style="color:rgba(255,255,255,0.45)">前往粤港澳大湾区及长三角科创中心，与产业头部企业及投资机构深度对话。</p>
+    </div>
+    <div class="en">
+      <div class="section-label reveal">Destinations</div>
+      <h2 class="section-title reveal" style="color:#fff">Two Innovation Hubs, Deep Industry Exchange</h2>
+      <p class="section-desc reveal" style="color:rgba(255,255,255,0.45)">Visit the Greater Bay Area and Yangtze River Delta to engage with leading tech companies and investment firms.</p>
+    </div>
+
+    <div class="dest-grid">
+      <!-- Shenzhen / GBA -->
+      <div class="dest-card reveal">
+        <div class="zh">
+          <div class="dest-region-tag">粤港澳大湾区</div>
+          <h3>深圳</h3>
+          <p class="dest-card-sub">以深圳为中心的大湾区科创企业</p>
+        </div>
+        <div class="en">
+          <div class="dest-region-tag">Greater Bay Area</div>
+          <h3>Shenzhen</h3>
+          <p class="dest-card-sub">GBA innovation ecosystem centred on Shenzhen</p>
+        </div>
+        <div class="dest-companies">
+          <span class="dest-tag">优必选 UBTECH</span>
+          <span class="dest-tag">众擎机器人</span>
+          <span class="dest-tag">腾讯 Tencent</span>
+          <span class="dest-tag">帕西尼</span>
+          <span class="dest-tag">智平方</span>
+          <span class="dest-tag">数字华夏</span>
+          <span class="dest-tag">云天励飞</span>
+          <span class="dest-tag">深创投</span>
+          <span class="dest-tag">深圳科创学院</span>
+        </div>
+      </div>
+
+      <!-- Hangzhou / YRD -->
+      <div class="dest-card reveal">
+        <div class="zh">
+          <div class="dest-region-tag">长三角</div>
+          <h3>杭州 · 上海</h3>
+          <p class="dest-card-sub">以杭州及上海为中心的长三角科创企业</p>
+        </div>
+        <div class="en">
+          <div class="dest-region-tag">Yangtze River Delta</div>
+          <h3>Hangzhou · Shanghai</h3>
+          <p class="dest-card-sub">YRD innovation ecosystem centred on Hangzhou and Shanghai</p>
+        </div>
+        <div class="dest-companies">
+          <span class="dest-tag">阿里巴巴 Alibaba</span>
+          <span class="dest-tag">宇树科技 Unitree</span>
+          <span class="dest-tag">智元机器人 Agibot</span>
+          <span class="dest-tag">傅立叶智能 Fourier</span>
+          <span class="dest-tag">青心意创</span>
+          <span class="dest-tag">它石智航</span>
+          <span class="dest-tag">启明创投</span>
+          <span class="dest-tag">复星集团 Fosun</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ELIGIBILITY -->
+<section class="eligibility" id="eligibility">
+  <div class="zh">
+    <div class="section-label reveal">申请资格</div>
+    <h2 class="section-title reveal">我们欢迎这样的你</h2>
+  </div>
+  <div class="en">
+    <div class="section-label reveal">Who Can Apply</div>
+    <h2 class="section-title reveal">We Welcome You</h2>
+  </div>
+
+  <div class="elig-grid">
+    <div class="elig-card reveal">
+      <div class="elig-icon">🎓</div>
+      <div class="zh">
+        <h3>学者与校友</h3>
+        <p>来自英国G5学校中对创业、科技投资、具身智能、AI大模型、中国创新生态感兴趣的学者或校友。</p>
+        <div class="elig-schools">
+          <span class="elig-school-tag">Cambridge</span>
+          <span class="elig-school-tag">Oxford</span>
+          <span class="elig-school-tag">Imperial</span>
+          <span class="elig-school-tag">LSE</span>
+          <span class="elig-school-tag">UCL</span>
+        </div>
+      </div>
+      <div class="en">
+        <h3>Scholars & Alumni</h3>
+        <p>Scholars or alumni from UK G5 universities with interests in entrepreneurship, tech investment, embodied intelligence, AI foundation models, and China's innovation ecosystem.</p>
+        <div class="elig-schools">
+          <span class="elig-school-tag">Cambridge</span>
+          <span class="elig-school-tag">Oxford</span>
+          <span class="elig-school-tag">Imperial</span>
+          <span class="elig-school-tag">LSE</span>
+          <span class="elig-school-tag">UCL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="elig-card reveal">
+      <div class="elig-icon">🚀</div>
+      <div class="zh">
+        <h3>创业者</h3>
+        <p>寻求中国VC投资、产业资源、科技公司合作、供应链资源落地的创业者。</p>
+      </div>
+      <div class="en">
+        <h3>Entrepreneurs</h3>
+        <p>Founders seeking China-based VC investment, industrial resources, tech company partnerships, or supply chain connections.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY -->
+<section class="apply-section" id="apply">
+  <div class="apply-inner">
+    <div class="zh">
+      <div class="section-label reveal">报名方式</div>
+      <h2 class="section-title reveal">立即申请</h2>
+      <p class="apply-desc reveal">本次活动采用问卷报名方式，根据初创团队介绍与简历择优录取，请您如实填写。报名成功后，我们将通过邮件或微信发送后续通知。</p>
+      <a href="https://forms.gle/4YYJ22aWwB28VSp9A" target="_blank" rel="noopener" class="apply-btn reveal">
+        填写报名表
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <p class="apply-note reveal">协会组织者拥有活动及内容安排的最终解释权</p>
+    </div>
+    <div class="en">
+      <div class="section-label reveal">How to Apply</div>
+      <h2 class="section-title reveal">Apply Now</h2>
+      <p class="apply-desc reveal">Applications are submitted via questionnaire. Candidates are selected based on their startup profile and CV. Once accepted, you'll receive further details via email or WeChat.</p>
+      <a href="https://forms.gle/4YYJ22aWwB28VSp9A" target="_blank" rel="noopener" class="apply-btn reveal">
+        Apply Now
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <p class="apply-note reveal">The organising committee reserves the right to final interpretation of event arrangements</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html">← <span class="zh-inline">返回首页</span><span class="en-inline">Back to Home</span></a>
+  <p>© 2026 Cambridge CEO. All rights reserved.</p>
+</footer>
+
+<script>
+// Language toggle
+function toggleLang() {
+  document.body.classList.toggle('lang-en');
+  const btn = document.querySelector('.lang-toggle');
+  btn.textContent = document.body.classList.contains('lang-en') ? '中 / EN' : 'EN / 中';
+}
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+</body>
+</html>
